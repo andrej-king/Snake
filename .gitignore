@@ -100,4 +100,10 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Custom
+*/**/bin/Debug
+*/**/obj/Debug
+*.cache
+
+
 # End of https://www.gitignore.io/api/rider,windows
