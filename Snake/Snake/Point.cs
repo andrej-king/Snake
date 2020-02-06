@@ -9,6 +9,13 @@ namespace Snake
         public int y;
         public char sym;
 
+        // Constructor
+        public Point(int x, int y, char sym)
+        {
+            this.x = x;
+            this.y = y;
+            this.sym = sym;
+        }
 
         public void Draw()
         {
