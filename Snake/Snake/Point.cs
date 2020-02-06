@@ -49,10 +49,18 @@ namespace Snake
             Console.SetCursorPosition(x, y); // Cursor position
             Console.Write(sym); // draw symbol
         }
+        
+        public void Clear()
+        {
+            sym = ' ';
+            Draw();
+        }
 
-        // public override string ToString()
-        // {
-        //     return x + ", " + y + ", " + sym;
-        // }
+        public override string ToString()
+        {
+            return x + ", " + y + ", " + sym;
+        }
+        
+
     }
 }
