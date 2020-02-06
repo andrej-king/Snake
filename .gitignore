@@ -101,9 +101,9 @@ $RECYCLE.BIN/
 *.lnk
 
 # Custom
-*/**/bin/Debug
-*/**/obj/Debug
-*.cache
+#*/**/bin/Debug
+#*/**/obj/Debug
+#*.cache
 
 
 # End of https://www.gitignore.io/api/rider,windows
