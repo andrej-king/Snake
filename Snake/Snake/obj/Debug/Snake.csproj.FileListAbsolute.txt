@@ -1,0 +1,5 @@
+Y:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\bin\Debug\Snake.exe
+Y:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\bin\Debug\Snake.pdb
+Y:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\obj\Debug\Snake.csprojAssemblyReference.cache
+Y:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\obj\Debug\Snake.exe
+Y:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\obj\Debug\Snake.pdb
