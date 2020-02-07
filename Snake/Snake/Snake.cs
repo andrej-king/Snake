@@ -7,7 +7,7 @@ namespace Snake
     public class Snake : Figure
     {
         Direction direction;
-        
+
         public Snake(Point tail, int length, Direction _direction)
         {
             direction = _direction;
@@ -39,18 +39,36 @@ namespace Snake
             return nextPoint;
         }
 
+
+        internal bool IsHitTail()
+        {
+            var head = pList.Last();
+            for (int i = 0; i < pList.Count - 2; i++)
+            {
+                if (head.IsHit(pList[i]))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public void HandeKey(ConsoleKey key)
         {
             if (key == ConsoleKey.LeftArrow || key == ConsoleKey.A)
             {
                 direction = Direction.LEFT;
-            } else if (key == ConsoleKey.RightArrow || key == ConsoleKey.D)
+            }
+            else if (key == ConsoleKey.RightArrow || key == ConsoleKey.D)
             {
                 direction = Direction.RIGHT;
-            } else if (key == ConsoleKey.DownArrow || key == ConsoleKey.S)
+            }
+            else if (key == ConsoleKey.DownArrow || key == ConsoleKey.S)
             {
                 direction = Direction.DOWN;
-            } else if (key == ConsoleKey.UpArrow || key == ConsoleKey.W)
+            }
+            else if (key == ConsoleKey.UpArrow || key == ConsoleKey.W)
             {
                 direction = Direction.UP;
             }
