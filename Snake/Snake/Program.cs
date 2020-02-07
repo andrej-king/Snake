@@ -45,16 +45,35 @@ namespace Snake
 
                 Thread.Sleep(100);
 
-
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
                     snake.HandeKey(key.Key);
                 }
             }
-
+            WriteGameOver();
 
             // Console.ReadKey();
+
+            static void WriteGameOver()
+            {
+                int xOffset = 25;
+                int yOffset = 8;
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.SetCursorPosition(xOffset, yOffset++);
+                WriteText("============================", xOffset, yOffset++ );
+                WriteText( "И Г Р А    О К О Н Ч Е Н А", xOffset + 1, yOffset++ );
+                yOffset++;
+                WriteText("Автор: Педченко Андрей", xOffset + 2, yOffset++);
+                WriteText("Игра написана в целях обучения", xOffset + 1, yOffset++);
+                WriteText("============================", xOffset, yOffset++);
+            }
+
+            static void WriteText(String text, int xOffset, int yOffset)
+            {
+                Console.SetCursorPosition(xOffset, yOffset);
+                Console.WriteLine(text);
+            }
         }
     }
 }
