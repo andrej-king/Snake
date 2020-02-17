@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+using System.Diagnostics;
 using System.Threading;
-using Snake.Properties;
+
 
 namespace Snake
 {
@@ -10,21 +9,36 @@ namespace Snake
     {
         public static void Main(string[] args)
         {
-            Console.SetBufferSize(80, 25); // Set width and height window
+            Console.SetBufferSize(120, 50); // Set width and height window
 
             Walls walls = new Walls(80, 25);
             walls.Draw();
-
 
             // draw points
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
 
+            // create food
             FoodCreator foodCreator = new FoodCreator(80, 25, '$');
             Point food = foodCreator.CreateFood();
-            food.Draw();
+            food.Draw(ConsoleColor.Red);
 
+            // Пути и настройки
+            Params settings = new Params();
+
+            // Audio player
+            Sounds sound = new Sounds(settings.GetResourceFolder());
+            sound.Play();
+            
+            Sounds sound1 = new Sounds(settings.GetResourceFolder());
+
+            // Score
+            Score score = new Score(settings.GetResourceFolder());
+
+            // Timer
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
 
             while (true)
             {
@@ -36,7 +50,10 @@ namespace Snake
                 if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
-                    food.Draw();
+                    food.Draw(ConsoleColor.Red);
+                    sound1.PlayEat();
+                    score.UpCurrentPoints();
+                    score.ShowCurrentPoints();
                 }
                 else
                 {
@@ -47,33 +64,26 @@ namespace Snake
 
                 if (Console.KeyAvailable)
                 {
-                    ConsoleKeyInfo key = Console.ReadKey();
-                    snake.HandeKey(key.Key);
+                    // ConsoleKeyInfo key = Console.ReadKey();
+                    // snake.HandeKey(key.Key);
+                    // snake.HandeKey(key);
+
+                    snake.HandeKey(Console.ReadKey(true).Key,
+                        score); // Передается значение нажатой клавиши, но не отображается в консоли    
                 }
+
+                // Timer show info
+                TimeSpan timeSpan = TimeSpan.FromSeconds(Convert.ToInt32(stopwatch.Elapsed.TotalSeconds));
+                Console.SetCursorPosition(93, 23);
+                Console.Write(timeSpan.ToString("mm':'ss"));
+                Console.Write('\r');
             }
-            WriteGameOver();
+
+            score.WriteBestResult();
+            score.WriteGameOver();
+
 
             // Console.ReadKey();
-
-            static void WriteGameOver()
-            {
-                int xOffset = 25;
-                int yOffset = 8;
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.SetCursorPosition(xOffset, yOffset++);
-                WriteText("============================", xOffset, yOffset++ );
-                WriteText( "И Г Р А    О К О Н Ч Е Н А", xOffset + 1, yOffset++ );
-                yOffset++;
-                WriteText("Автор: Педченко Андрей", xOffset + 2, yOffset++);
-                WriteText("Игра написана в целях обучения", xOffset + 1, yOffset++);
-                WriteText("============================", xOffset, yOffset++);
-            }
-
-            static void WriteText(String text, int xOffset, int yOffset)
-            {
-                Console.SetCursorPosition(xOffset, yOffset);
-                Console.WriteLine(text);
-            }
         }
     }
 }

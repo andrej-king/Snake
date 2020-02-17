@@ -3,3 +3,14 @@ Y:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\bin\Debug\Snake.pdb
 Y:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\obj\Debug\Snake.csprojAssemblyReference.cache
 Y:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\obj\Debug\Snake.exe
 Y:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\obj\Debug\Snake.pdb
+D:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\bin\Debug\Snake.exe
+D:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\bin\Debug\Snake.pdb
+D:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\obj\Debug\Snake.csprojAssemblyReference.cache
+D:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\obj\Debug\Snake.exe
+D:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\obj\Debug\Snake.pdb
+Y:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\bin\Debug\AxInterop.WMPLib.dll
+Y:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\bin\Debug\Interop.WMPLib.dll
+Y:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\obj\Debug\Snake.csproj.CopyComplete
+D:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\bin\Debug\AxInterop.WMPLib.dll
+D:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\bin\Debug\Interop.WMPLib.dll
+D:\Google Drive\C_Sharp\Study\Snake\Snake\Snake\obj\Debug\Snake.csproj.CopyComplete

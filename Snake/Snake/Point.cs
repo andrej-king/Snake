@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace Snake
 {
@@ -48,13 +47,16 @@ namespace Snake
         {
             return p.x == this.x && p.y == this.y;
         }
-        
-        public void Draw()
+
+        public void Draw(ConsoleColor foreg = ConsoleColor.Black)
         {
+            Console.BackgroundColor = default;
+            Console.ForegroundColor = foreg;
             Console.SetCursorPosition(x, y); // Cursor position
             Console.Write(sym); // draw symbol
+            Console.CursorVisible = false; // Hide cursor
         }
-        
+
         public void Clear()
         {
             sym = ' ';
@@ -65,7 +67,5 @@ namespace Snake
         {
             return x + ", " + y + ", " + sym;
         }
-        
-
     }
 }

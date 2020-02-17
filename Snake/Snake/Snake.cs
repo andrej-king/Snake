@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using WMPLib;
 
 namespace Snake
 {
     public class Snake : Figure
     {
         Direction direction;
+
 
         public Snake(Point tail, int length, Direction _direction)
         {
@@ -54,23 +58,33 @@ namespace Snake
             return false;
         }
 
-        public void HandeKey(ConsoleKey key)
+        public void HandeKey(ConsoleKey key, Score score)
         {
-            if (key == ConsoleKey.LeftArrow || key == ConsoleKey.A)
+            if ((key == ConsoleKey.LeftArrow && direction != Direction.RIGHT) ||
+                (key == ConsoleKey.A && direction != Direction.RIGHT))
             {
                 direction = Direction.LEFT;
             }
-            else if (key == ConsoleKey.RightArrow || key == ConsoleKey.D)
+            else if ((key == ConsoleKey.RightArrow && direction != Direction.LEFT) ||
+                     (key == ConsoleKey.D && direction != Direction.LEFT))
             {
                 direction = Direction.RIGHT;
             }
-            else if (key == ConsoleKey.DownArrow || key == ConsoleKey.S)
+            else if ((key == ConsoleKey.DownArrow && direction != Direction.UP) ||
+                     (key == ConsoleKey.S && direction != Direction.UP))
             {
                 direction = Direction.DOWN;
             }
-            else if (key == ConsoleKey.UpArrow || key == ConsoleKey.W)
+            else if ((key == ConsoleKey.UpArrow && direction != Direction.DOWN) ||
+                     (key == ConsoleKey.W && direction != Direction.DOWN))
             {
                 direction = Direction.UP;
+            }
+            else if (key == ConsoleKey.Escape)
+            {
+                score.WriteBestResult();
+                score.WriteGameOver();
+                System.Environment.Exit(0); // exit
             }
         }
 
