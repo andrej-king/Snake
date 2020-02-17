@@ -30,7 +30,7 @@ namespace Snake
             // Audio player
             Sounds sound = new Sounds(settings.GetResourceFolder());
             sound.Play();
-            
+
             Sounds sound1 = new Sounds(settings.GetResourceFolder());
 
             // Score
@@ -64,10 +64,6 @@ namespace Snake
 
                 if (Console.KeyAvailable)
                 {
-                    // ConsoleKeyInfo key = Console.ReadKey();
-                    // snake.HandeKey(key.Key);
-                    // snake.HandeKey(key);
-
                     snake.HandeKey(Console.ReadKey(true).Key,
                         score); // Передается значение нажатой клавиши, но не отображается в консоли    
                 }
